@@ -18,14 +18,14 @@ import "./styles.css";
 
     const [movie, setMovie] = useState<Movie>();
 
-    useEffect(() =>{
+    useEffect(()=>{
         axios.get(`${BASE_URL}/movies/${movieId}`)
         .then(response => {
-            setMovie(response.data)
-        })
+            setMovie(response.data);
+        });
     }, [movieId]);
 
-    const handleSubmit = (event : React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 
       event.preventDefault();
 
@@ -55,8 +55,7 @@ import "./styles.css";
 
   return (
     <div className="dsmovie-form-container">
-      <img
-        className="dsmovie-movie-card-image" src={movie?.image} alt={movie?.title} />
+      <img className="dsmovie-movie-card-image" src={movie?.image} alt={movie?.title} />
       <div className="dsmovie-card-bottom-container">
         <h3>{movie?.title}</h3>
         <form className="dsmovie-form" onSubmit={handleSubmit}>
